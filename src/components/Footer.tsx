@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Briefcase, BookOpen, GraduationCap, FileText, Mail, Phone, MapPin, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Youtube, Instagram, Zap, ShieldCheck } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -32,6 +32,9 @@ const Footer = () => {
                 <Facebook className="h-4 w-4" />
               </a>
               <a href="#" className="h-9 w-9 rounded-lg bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors">
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a href="#" className="h-9 w-9 rounded-lg bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors">
                 <Linkedin className="h-4 w-4" />
               </a>
               <a href="#" className="h-9 w-9 rounded-lg bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors">
@@ -47,7 +50,7 @@ const Footer = () => {
               <li><Link to="/cv-builder" className="hover:opacity-100 transition-opacity">CV Builder</Link></li>
               <li><Link to="/courses" className="hover:opacity-100 transition-opacity">Courses</Link></li>
               <li><Link to="/books" className="hover:opacity-100 transition-opacity">Books</Link></li>
-              <li><Link to="/aptitude-tests" className="hover:opacity-100 transition-opacity">Aptitude Tests</Link></li>
+              <li><Link to="/blog" className="hover:opacity-100 transition-opacity">Blog</Link></li>
             </ul>
           </div>
 
@@ -63,6 +66,16 @@ const Footer = () => {
           </div>
 
           <div>
+            <h4 className="font-heading font-semibold mb-4">Verification</h4>
+            <ul className="space-y-2 text-sm opacity-70 mb-6">
+              <li>
+                <Link to="/verify-certificate" className="hover:opacity-100 transition-opacity flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 shrink-0" />
+                  Verify Certificate
+                </Link>
+              </li>
+            </ul>
+
             <h4 className="font-heading font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-sm opacity-70">
               <li className="flex items-center gap-2">
@@ -93,8 +106,5 @@ const Footer = () => {
     </footer>
   );
 };
-
-// Need Zap for the banner
-import { Zap } from "lucide-react";
 
 export default Footer;
