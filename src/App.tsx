@@ -13,6 +13,8 @@ import CVBuilderPage from "./pages/CVBuilderPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
+import BlogPage from "./pages/BlogPage";
+import CertificateVerifyPage from "./pages/CertificateVerifyPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +36,8 @@ const App = () => (
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/verify-certificate" element={<CertificateVerifyPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
