@@ -14,33 +14,257 @@ export type Database = {
   }
   public: {
     Tables: {
+      books: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          price: number | null
+          status: string | null
+          title: string
+          updated_at: string
+          writer_id: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          price?: number | null
+          status?: string | null
+          title: string
+          updated_at?: string
+          writer_id: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          price?: number | null
+          status?: string | null
+          title?: string
+          updated_at?: string
+          writer_id?: string
+        }
+        Relationships: []
+      }
+      courses: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          instructor_id: string
+          price: number | null
+          status: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          instructor_id: string
+          price?: number | null
+          status?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          instructor_id?: string
+          price?: number | null
+          status?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      job_applications: {
+        Row: {
+          candidate_id: string
+          created_at: string
+          employer_id: string
+          id: string
+          job_id: string
+          status: string | null
+        }
+        Insert: {
+          candidate_id: string
+          created_at?: string
+          employer_id: string
+          id?: string
+          job_id: string
+          status?: string | null
+        }
+        Update: {
+          candidate_id?: string
+          created_at?: string
+          employer_id?: string
+          id?: string
+          job_id?: string
+          status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "job_applications_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      jobs: {
+        Row: {
+          company: string
+          created_at: string
+          description: string | null
+          employer_id: string
+          id: string
+          location: string | null
+          salary: string | null
+          status: string | null
+          title: string
+          type: string | null
+          updated_at: string
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          description?: string | null
+          employer_id: string
+          id?: string
+          location?: string | null
+          salary?: string | null
+          status?: string | null
+          title: string
+          type?: string | null
+          updated_at?: string
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          description?: string | null
+          employer_id?: string
+          id?: string
+          location?: string | null
+          salary?: string | null
+          status?: string | null
+          title?: string
+          type?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      offers: {
+        Row: {
+          code: string | null
+          created_at: string
+          discount_percent: number | null
+          end_date: string | null
+          id: string
+          is_active: boolean | null
+          start_date: string | null
+          title: string
+        }
+        Insert: {
+          code?: string | null
+          created_at?: string
+          discount_percent?: number | null
+          end_date?: string | null
+          id?: string
+          is_active?: boolean | null
+          start_date?: string | null
+          title: string
+        }
+        Update: {
+          code?: string | null
+          created_at?: string
+          discount_percent?: number | null
+          end_date?: string | null
+          id?: string
+          is_active?: boolean | null
+          start_date?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
+          bio: string | null
           created_at: string
+          education: Json | null
+          experience: Json | null
           full_name: string | null
+          headline: string | null
           id: string
+          is_public: boolean | null
+          linkedin_url: string | null
+          location: string | null
           phone: string | null
+          skills: string[] | null
           updated_at: string
           user_id: string
+          website: string | null
         }
         Insert: {
           avatar_url?: string | null
+          bio?: string | null
           created_at?: string
+          education?: Json | null
+          experience?: Json | null
           full_name?: string | null
+          headline?: string | null
           id?: string
+          is_public?: boolean | null
+          linkedin_url?: string | null
+          location?: string | null
           phone?: string | null
+          skills?: string[] | null
           updated_at?: string
           user_id: string
+          website?: string | null
         }
         Update: {
           avatar_url?: string | null
+          bio?: string | null
           created_at?: string
+          education?: Json | null
+          experience?: Json | null
           full_name?: string | null
+          headline?: string | null
           id?: string
+          is_public?: boolean | null
+          linkedin_url?: string | null
+          location?: string | null
           phone?: string | null
+          skills?: string[] | null
           updated_at?: string
           user_id?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
+      settings: {
+        Row: {
+          id: string
+          key: string
+          updated_at: string
+          value: string | null
+        }
+        Insert: {
+          id?: string
+          key: string
+          updated_at?: string
+          value?: string | null
+        }
+        Update: {
+          id?: string
+          key?: string
+          updated_at?: string
+          value?: string | null
         }
         Relationships: []
       }
